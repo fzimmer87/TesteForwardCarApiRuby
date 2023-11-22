@@ -57,13 +57,15 @@ Entao('sistema me retorna o VIN do modelo que cadastrei') do
 end
 
 Dado('que cadastrei um novo veiculo na ForwardCar') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @post_novo_veiculo = Requests.new
+  @post_novo_veiculo.cadastraVeiculoPost
 end
 
 Quando('realizo a pesquisa do modelo cadastrado') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @response_novo_carro = @post_novo_veiculo.consultaVeiculoGet
 end
 
 Entao('sistema me retorna VIN do carro cadastrado no GET') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@response_novo_carro.code).to eql (200)
+  # expect(@response_novo_carro["vin"]).to eql '007337199'
 end

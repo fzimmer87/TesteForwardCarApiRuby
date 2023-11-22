@@ -65,4 +65,7 @@ class Requests
           }.to_json
           )      
     end
+    def consultaVeiculoGet
+        ForwardCar.get('/carShop/cars')
+    end
 end
