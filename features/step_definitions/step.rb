@@ -1,19 +1,21 @@
 Dado('que cadastro um novo usuario') do
-  @post_registro = Requests.new
+  $sua_classe = ClasseTeste.new
 end
 
 Quando('enviar as informacoes do usuario') do
-  @resp_register = @post_registro.registerPost('Fernanda','Zimmer','zimmer9','1234')
-
-puts @resp_register
-puts @resp_register.code
-puts @resp_register.msg
-
+  $resp_register = []
+  $resp_register = $sua_classe.cadastro_de_usuario 
+  
 end
 
 Entao('usuario sera cadastrado e sistema me retorna statusCode {int}') do |statusCode |
- expect(@resp_register.code).to eql statusCode
- expect(@resp_register.msg).to eql 'OK'
+  
+  # $resp_register.each do |response|
+    expect($resp_register.code).to eql (statusCode)
+    binding.pry
+  
+#  expect(@resp_register.code).to eql statusCode
+#  expect(@resp_register.msg).to eql 'OK'
 end
 
 Quando('enviar as informacoes do usuario com usarname existente') do

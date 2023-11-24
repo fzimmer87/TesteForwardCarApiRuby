@@ -1,14 +1,13 @@
 class Requests
     def registerPost (firstname, lastname, username, password)
-        #estou chamando meu module na base url
-        ForwardCar.post('/register',  body: {
+        response = ForwardCar.post('/register',  body: {
     
         "firstname": firstname, 
         "lastname": lastname, 
         "username": username, 
         "password": password
     
-    }.to_json)    
+    }.to_json)  
     end
 
     def loginPost (username,password)
