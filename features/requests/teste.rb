@@ -1,6 +1,6 @@
 require 'pg'
 
-class ClasseTeste
+class ConexaoMetodos
   def initialize
     host = 'lv-dev.betternow.com.br'
     database = 'Treinamento'
@@ -36,6 +36,14 @@ class ClasseTeste
     teste = Requests.new
     @passwords.each_with_index do |password, i|
       @dados_usuarios = teste.registerPost(@firstnames[i], @lastnames[i], @usernames[i], @passwords[i])
+    end
+
+    @dados_usuarios
+  end
+  def login_de_usuario
+    teste = Requests.new
+    @passwords.each_with_index do |password, i|
+      @dados_usuarios = teste.loginPost(@usernames[i], @passwords[i])
     end
 
     @dados_usuarios

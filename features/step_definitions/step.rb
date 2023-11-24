@@ -1,26 +1,21 @@
 Dado('que cadastro um novo usuario') do
-  $sua_classe = ClasseTeste.new
+  @post_registro = ConexaoMetodos.new
 end
 
 Quando('enviar as informacoes do usuario') do
-  $resp_register = []
-  $resp_register = $sua_classe.cadastro_de_usuario 
+  @resp_register = []
+  @resp_register = @post_registro.cadastro_de_usuario 
   
 end
 
 Entao('usuario sera cadastrado e sistema me retorna statusCode {int}') do |statusCode |
-  
-  # $resp_register.each do |response|
-    expect($resp_register.code).to eql (statusCode)
-    binding.pry
-  
-#  expect(@resp_register.code).to eql statusCode
-#  expect(@resp_register.msg).to eql 'OK'
+      expect(@resp_register.code).to eql (statusCode)
+
 end
 
 Quando('enviar as informacoes do usuario com usarname existente') do
-  @resp_register = @post_registro.registerPost('Fernanda','Zimmer','zimmer00','1234')
-  @resp_register = @post_registro.registerPost('Fabiana','Zimmer','zimmer10','1234')
+  @resp_register = @post_registro.cadastro_de_usuario
+  @resp_register = @post_registro.cadastro_de_usuario
  
 end
 
@@ -29,17 +24,18 @@ Entao('usuario nao sera cadastrado e sistema me retorna statusCode {int}') do |s
 end
 
 Dado('que tenho cadastro com usarname e senha cadastrados na massa de dados') do
-  @post_login = Requests.new
+  @post_login = ConexaoMetodos.new
 end
 
 Quando('enviar informacoes para login') do
-  @response_login = @post_login.loginPost('zimmer00','1234')
+  @response_login = []
+  @response_login = @post_login.login_de_usuario
   
 end
 
 Entao('o sistema realiza login e me retorna status code {int}') do |statusCode|
   expect(@response_login.code).to eql statusCode
-  # expect(@response_login["firstname"]).to eql "Fernanda"
+  
 end
 
 Dado('que quero cadastrar um novo veículo') do
