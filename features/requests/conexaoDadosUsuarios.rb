@@ -31,6 +31,7 @@ class ConexaoMetodos
       @connection.close if @connection
     end
   end
+  
 
   def cadastro_de_usuario
     teste = Requests.new

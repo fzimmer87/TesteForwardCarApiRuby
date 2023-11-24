@@ -35,15 +35,16 @@ end
 
 Entao('o sistema realiza login e me retorna status code {int}') do |statusCode|
   expect(@response_login.code).to eql statusCode
-  
+
 end
 
 Dado('que quero cadastrar um novo veículo') do
-  @post_novo_veiculo = Requests.new
+  @post_novo_veiculo = ConexaoBancoVeiculos.new
 end
 
 Quando('enviar informaçoes para novo cadastro') do
-  @response_novo_carro = @post_novo_veiculo.cadastraVeiculoPost
+  @response_novo_carro = []
+  @response_novo_carro = @post_novo_veiculo.cadastro_de_veiculo
   
 end
 
@@ -65,5 +66,4 @@ end
 
 Entao('sistema me retorna VIN do carro cadastrado no GET') do
   expect(@response_novo_carro.code).to eql (200)
-  # expect(@response_novo_carro["vin"]).to eql '007337199'
 end
