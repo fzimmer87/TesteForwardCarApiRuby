@@ -17,7 +17,8 @@ class Requests
     }.to_json)      
     end
 
-    def cadastraVeiculoPost (price, mileage, owners, modelYear,color, carTrim, engine, transmission,vin)
+    def cadastraVeiculoPost 
+        
         ForwardCar.post('/carShop/cars', body: {
             "dealer": {
               "class": "com.ca.lisa.demo.CarDealer",
@@ -49,16 +50,16 @@ class Requests
               }
             },
             "stockNumber": "2",
-            "price": price,
-            "milage": mileage,
-            "owners": owners,
-            "modelYear": modelYear,
-            "color": color,
-            "carTrim": carTrim,
-            "engine": engine,
-            "transmission": transmission,
-            "vin": vin,
-            "options": "no",
+            "price": "312123",
+            "milage": "55",
+            "owners": "rrfgrge",
+            "modelYear": "2022",
+            "color": "blue",
+            "carTrim": "afsfew",
+            "engine": "rfrffe",
+            "transmission": "grrf",
+            "vin": "123456",
+            "options": "ewwe",
             "image1": "dewdwef",
             "image2": "wefew"
           }.to_json
