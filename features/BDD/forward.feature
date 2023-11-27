@@ -1,7 +1,6 @@
 #language: pt
 Funcionalidade: Testar página register da plataforma ForwardCar
 
-
     @CT001
     Cenario: Realizar cadastro na ForwardCar
       Dado que cadastro um novo usuario

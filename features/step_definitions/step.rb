@@ -13,8 +13,8 @@ Entao('usuario sera cadastrado e sistema me retorna statusCode {int}') do |statu
 end
 
 Quando('enviar as informacoes do usuario com usarname existente') do
-  @resp_register = @post_registro.cadastro_de_usuario
-  @resp_register = @post_registro.cadastro_de_usuario
+  @resp_register = @post_registro.cadastro_de_usuario ##ajustarvideoIsa
+  @resp_register = @post_registro.cadast3ro_de_usuario
  
 end
 

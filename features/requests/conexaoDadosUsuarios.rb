@@ -38,9 +38,9 @@ class ConexaoMetodos
     @passwords.each_with_index do |password, i|
       @dados_usuarios = teste.registerPost(@firstnames[i], @lastnames[i], @usernames[i], @passwords[i])
     end
-
     @dados_usuarios
   end
+  
   def login_de_usuario
     teste = Requests.new
     @passwords.each_with_index do |password, i|
